@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+}
+h2 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+}
+header {
+    background: #abcdfa;
+    height: 120px;
+}
+
+.personalinfo {
+    float: right;
+    padding: 5px 0;
+    width: 200px;
+    height: 100px;
+    position: relative;
+}
+.personalname {
+    float: left;
+    width: 100px;
+    bottom: 0;
+    position: absolute;
+    text-align: right;
+}
+.personalimg{
+    float: right;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    right: 0;
+}
+.personalimg img {
+    height: 100%;
+    width: 100%;
+}
+
+#main {
+    margin: 0 auto;
+    width: 980px;
+    overflow: hidden;
+}
+
+.sidebar {
+    float: left;
+    width: 300px;
+    height: 400px;
+    margin-right: 50px;
+}
+
+.rankingtab {
+    width: 33%;
+    height: 30px;
+    background: #f4f4f4;
+    float: left;
+    font-size: 16px;
+    border-top-right-radius: 10px;
+}
+.ranking ul {
+    list-style: none;
+}
+
+.mainarea {
+    position: relative;
+    overflow: hidden;
+}
+.layer1 {
+    width: 100%;
+    height: 200px;
+    float: left;
+}
+
+.mainsection .title {
+    margin: 10px;
+}
+.time {
+    margin: 10px;
+    text-align: right;
+}
+
+#typearea {
+    width: 100%;
+    border: none;
+    background: #fcc2;
+    color: #111;
+    font-size: 20px;
+    padding: 10px;
+    margin-bottom: 30px;
+    top: 0;
+    position: absolute;
+    z-index: 2;
+    box-sizing: border-box;
+}
+#typearea2 {
+    width: 100%;
+    border: none;
+    background: #cfc2;
+    font-size: 20px;
+    padding: 10px;
+    margin-bottom: 30px;
+    top: 0;
+    position: absolute;
+    z-index: 3;
+    box-sizing: border-box;
+}
+#startbtn {
+    margin-right: 5px;
+    margin-top: 80px;
+    width: 80px;
+    height: 40px;
+    background: #333;
+    border: none;
+    text-align: center;
+    float: right;
+    color: #f6f5f5;
+    vertical-align: bottom;
+}
