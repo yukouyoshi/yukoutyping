@@ -14,3 +14,6 @@
 
 ### 開発イメージ
 ![image](https://github.com/yukouyoshi/yukoutyping/blob/master/screenshot.png)
+
+### アイデア
+![mindmap](https://github.com/yukouyoshi/yukoutyping/blob/master/typing_mindmap.png)
