@@ -11,4 +11,3 @@
 - EDITOR: PhpStorm, VSCode
 - CMS: WordPress
 - DB: MySql
-- 
