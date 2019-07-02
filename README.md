@@ -13,4 +13,4 @@
 - DB: MySql
 
 ### 開発イメージ
-![イメージ](https://github.com/yukouyoshi/yukoutyping/edit/master/screenshot.png)
+![image](https://github.com/yukouyoshi/yukoutyping/blob/master/screenshot.png)
