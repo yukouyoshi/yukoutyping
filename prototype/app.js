@@ -10,6 +10,7 @@ var milis = 0;
 var sec = 0;
 var min = 0;
 var keydownCount = 0;
+var beforeTxt = "";
 $(function () {
     var $tarea = $('.typearea');
     var $sarea = $('.showarea');
@@ -19,7 +20,7 @@ $(function () {
     $('.btn-start').on('click', function () {
 
         if (!isstart) {
-            // 停止時
+            // when stopped(initial state)
             isstart = true;
             $('.btn-start').val('STOP');
 
@@ -32,6 +33,7 @@ $(function () {
                 if (cdsec === 3) {
                     clearInterval(si);
                     $tarea.prop('disabled',false);
+                    // $('.btn-reset').prop('disabled', true);
                     $tarea.focus();
                     $sarea.val(TXT);
                     rap = setInterval(function () {
@@ -68,29 +70,30 @@ $(function () {
         // 間違ってたら画面揺らし、1ミス＋＋
         if (inputTxt !== correctTxt) {
             shakeTarea(this);
-            // $(this).prop('disabled', 'true');
             failcount++;
-            $(this).val(correctTxt.substring(0, correctTxt.length-1));
+            var beforeStr = getDuplicateStrings(inputTxt, correctTxt);
+            $(this).val(beforeStr);
         } else {
             // 正しかったら車位置移動
-            carmove(inputTxt, TXT);
+            if (beforeTxt !== inputTxt) {
+                beforeTxt = inputTxt;
+                carmove(inputTxt, TXT);
+            }
         }
 
         // 最後まで入力し切ったら終了
         if (inputTxt === TXT) {
             clearInterval(rap);
             showFinished(failcount);
-            // reset();
         }
-
     });
-
 
     // 不正防止
     // ctrl+v
     $tarea.on('keydown', function (e) {
 
-        // （入力文字数に対し、キータッチ回数(ミスタッチ含まず)が少ない場合、何らかのチートが行われたとみなす）
+        // 入力文字数に対し、キータッチ回数(ミスタッチ含まず)が少ない場合、何らかのチートが行われたとみなす
+        // when keytouch count is less than input text length, some cheat may happens.
         keydownCount++;
         var inputTxt = $(this).val().length;
         if ((keydownCount - failcount) < inputTxt) {
@@ -152,7 +155,23 @@ function carmove(inputtxt, TXT) {
     if (maxMoved > moved) {
         $('.running-car').animate({'left' : "+=" + moved + 'px'}, { easing: 'linear'});
     }
+}
 
+function isInputMatched() {
+    var inputTxt = $('.typearea').val();
+    var correctTxt = TXT.substring(0, inputTxt.length);
+    return inputTxt === correctTxt;
+}
+
+function getDuplicateStrings(str1, str2) {
+    var retStr = '';
+    for (let i = 0; i < str1.length; i++) {
+        if (str1[i] !== str2[i]) {
+            break;
+        }
+        retStr += str1[i];
+    }
+    return retStr;
 }
 
 function showFinished(failcount) {
@@ -182,6 +201,9 @@ function reset() {
     cdsec = 0;
     $('.raptime').html(0);
     $('.btn-start').val('START');
+    $('.typearea').val('');
+    $('.showarea').val('');
+    $('.running-car').css('left', '0px');
 }
 
 /**
