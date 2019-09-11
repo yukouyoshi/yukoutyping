@@ -7,14 +7,18 @@
 </head>
 <body>
     <header>
+        <h2 class="title"><a href="index.html">タイピング</a></h2>
         <div class="personalinfo">
+            <a href="personal.html">
+
             <div class="personalname">あなた</div>
             <div class="personalimg">
                 <img src="benjomeshi_boy.png" alt="">
             </div>
+            </a>
         </div>
     </header>
-    <div id="main">
+    <div class="main">
         <section class="sidebar">
             <div class="tabbtn">
                 <input type="button" class="rankingtab" value="全体">
@@ -22,6 +26,7 @@
                 <input type="button" class="rankingtab" value="あなた">
             </div>
             <div class="ranking">
+                <!--
                 <ul>
                     <li>&nbsp;1位：あなた：ミス５：1:15:01</li>
                     <li>&nbsp;2位：あなた：ミス５：1:16:01</li>
@@ -34,25 +39,80 @@
                     <li>&nbsp;9位：あなた：ミス４：1:28:01</li>
                     <li>10位：あなた：ミス５：1:29:01</li>
                 </ul>
+                -->
+                <table>
+                    <thead>
+                    <tr>
+                        <th>pos</th>
+                        <th>name</th>
+                        <th>time</th>
+                        <th>mistype</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="pos">1</td><td class="name">yas</td><td class="rap">1:10:00</td><td class="mistype">0</td>
+                    </tr>
+                    <tr>
+                        <td class="pos">2</td><td class="name">yas</td><td class="rap">1:10:01</td><td class="mistype">10</td>
+                    </tr>
+                    <tr>
+                        <td class="pos">3</td><td class="name">yas</td><td class="rap">1:10:02</td><td class="mistype">0</td>
+                    </tr>
+                    <tr>
+                        <td class="pos">4</td><td class="name">yas</td><td class="rap">1:10:03</td><td class="mistype">0</td>
+                    </tr>
+                    <tr>
+                        <td class="pos">5</td><td class="name">yas</td><td class="rap">1:10:04</td><td class="mistype">0</td>
+                    </tr>
+                    <tr>
+                        <td class="pos">6</td><td class="name">yas</td><td class="rap">1:10:05</td><td class="mistype">7</td>
+                    </tr>
+                    <tr>
+                        <td class="pos">7</td><td class="name">yas</td><td class="rap">1:10:06</td><td class="mistype">5</td>
+                    </tr>
+                    <tr>
+                        <td class="pos">8</td><td class="name">yas</td><td class="rap">1:10:07</td><td class="mistype">3</td>
+                    </tr>
+                    <tr>
+                        <td class="pos">9</td><td class="name">yas</td><td class="rap">1:10:08</td><td class="mistype">2</td>
+                    </tr>
+                    <tr>
+                        <td class="pos">10</td><td class="name">yas</td><td class="rap">1:10:10</td><td class="mistype">1</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
         <section class="mainsection">
-
-            <h2 class="title">タイピング</h2>
-            <p class="time">00:00.00</p>
+            <p class="raptime">00:00.00</p>
             <section class="mainarea">
-                <div class="layer1">
-                    <textarea disabled="disabled" name="typearea" id="typearea" cols="70" rows="10"></textarea>
-                    <textarea spellcheck="false" name="typearea2" id="typearea2" cols="70" rows="10"></textarea>
+                <div class="running-line">
+                    <img src="running_car.png" alt="" class="running-car">
                 </div>
-                <div>
-                    <input type="button" value="START" id="startbtn">
+                <div class="layer1">
+                    <textarea disabled="disabled" class="showarea" name="showarea" id="showarea" cols="70" rows="10"></textarea>
+                    <textarea spellcheck="false" class="typearea" name="typearea" id="typearea" cols="70" rows="10" disabled="true"></textarea>
+                </div>
+                <div class="btn-container">
+                    <input type="button" value="RESET" class="btn btn-reset" id="resetbtn">
+                    <input type="button" value="START" class="btn btn-start" id="startbtn">
                 </div>
             </section>
         </section>
+
+        <!--モーダル表示-->
+        <div class="finished-panel">
+            <p>タイム更新です！</p>
+            <p>ミス回数：<span class="failcount"></span></p>
+            <button class="btn btn-close">OK</button>
+        </div>
+        <div class="finished-panel-cover"></div>
     </div>
 
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="common.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
